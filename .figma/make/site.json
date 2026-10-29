@@ -1,0 +1,10 @@
+{
+  "description": "Enables event attendees to instantly access, search, and download their unique photos from a mobile-friendly, nostalgic digital scrapbook gallery.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
