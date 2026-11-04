@@ -174,15 +174,15 @@ function Button({
 
 function Brand() {
   return (
-    <div className="brand" aria-label="Snapshot and Halcyon">
+    <div className="brand" aria-label="Snapshot and event brand">
       <div className="snapshot-mark">
         <Icon name="camera" size={17} />
         <span>SNAPSHOT</span>
       </div>
       <span className="brand-x">×</span>
       <div className="club-mark">
-        HALCYON
-        <small>night club</small>
+        EVENT
+        <small>venue logo</small>
       </div>
     </div>
   )
@@ -286,6 +286,59 @@ function Polaroid({
   )
 }
 
+function PhotoNotFoundPage() {
+  const requestedNumber =
+    new URLSearchParams(window.location.search).get("photo")?.replace(/\D/g, "") || "—"
+  const formattedNumber =
+    requestedNumber === "—" ? requestedNumber : requestedNumber.padStart(3, "0")
+
+  return (
+    <main className="app-shell not-found-screen">
+      <FairyLights />
+      <header className="topbar">
+        <Brand />
+        <span className="event-pill">14 JUN '25</span>
+      </header>
+      <section className="not-found-content">
+        <div className="not-found-copy">
+          <p className="eyebrow">EVENT NAME · LOCATION</p>
+          <h1>
+            This memory
+            <br />
+            <em>isn’t here yet.</em>
+          </h1>
+          <p>
+            We couldn’t find photo <strong>#{formattedNumber}</strong> in this event.
+            Check the number on your print or browse the collage instead.
+          </p>
+        </div>
+
+        <Doodles />
+
+        <div className="missing-polaroid" aria-hidden="true">
+          <div className="missing-frame">
+            <Icon name="camera" size={34} />
+            <span>still developing...</span>
+          </div>
+          <span className="photo-number">#{formattedNumber}</span>
+          <span className="missing-tape missing-tape-left" />
+          <span className="missing-tape missing-tape-right" />
+        </div>
+
+        <div className="not-found-actions">
+          <Button
+            className="primary-button"
+            onClick={() => window.location.assign("/")}
+          >
+            View event collage <Icon name="arrow" />
+          </Button>
+          <p>Photos from other events will never appear here.</p>
+        </div>
+      </section>
+    </main>
+  )
+}
+
 export default function App() {
   const [screen, setScreen] = useState<"photo" | "collage">("photo")
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null)
@@ -299,6 +352,10 @@ export default function App() {
   }, [search])
 
   const savePhoto = () => setSaved(true)
+
+  if (window.location.pathname === "/photo-not-found") {
+    return <PhotoNotFoundPage />
+  }
 
   if (saved) {
     return (
@@ -353,7 +410,7 @@ export default function App() {
           <span className="header-spacer" />
         </header>
         <section className="viewer-content">
-          <p className="eyebrow">HALCYON · 14.06.25</p>
+          <p className="eyebrow">EVENT NAME · 14.06.25</p>
           <h1>Photo #{selectedPhoto.id.toString().padStart(3, "0")}</h1>
           <Doodles />
           <div className="viewer-photo-wrap">
@@ -369,7 +426,7 @@ export default function App() {
               className="secondary-button"
               onClick={() =>
                 navigator.share?.({
-                  title: "Snapshot at Halcyon",
+                  title: "Snapshot at Event Name",
                   text: `Photo #${selectedPhoto.id.toString().padStart(3, "0")}`,
                   url: window.location.href,
                 })
@@ -402,7 +459,7 @@ export default function App() {
               <br />
               <em>yours.</em>
             </h1>
-            <p className="subcopy">Halcyon Summer Solstice · Room 02</p>
+            <p className="subcopy">Event Name · Location</p>
           </div>
           <Doodles />
           <div className="hero-photo-stage">
@@ -436,10 +493,10 @@ export default function App() {
       </header>
 
       <section className="collage-intro">
-        <p className="eyebrow">14 JUNE 2025 · ROOM 02</p>
+        <p className="eyebrow">14 JUNE 2025 · LOCATION</p>
         <h1>
-          Summer Solstice
-          <em> at Halcyon</em>
+          Event Name
+          <em> at Venue</em>
         </h1>
         <p>One night, 86 memories.</p>
       </section>

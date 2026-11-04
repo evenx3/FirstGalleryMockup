@@ -4,13 +4,13 @@
 :root {
   --ink: #171419;
   --paper: #fffdf8;
-  --night: #f8f6f1;
-  --night-deep: #f8f6f1;
-  --violet: #eee9f1;
-  --violet-light: #d9cedf;
-  --coral: #ff685d;
-  --pink: #f59bbe;
-  --gold: #ffd37a;
+  --night: #193a4a;
+  --night-deep: #193a4a;
+  --violet: #dcfaff;
+  --violet-light: #aef3ff;
+  --coral: #42e4ff;
+  --pink: #fff200;
+  --gold: #fff76a;
   --muted: #625b65;
   --charcoal: #201d22;
   --shadow: 0 18px 45px rgba(31, 25, 34, 0.18);
@@ -30,7 +30,7 @@
     min-width: 320px;
     min-height: 100vh;
     background: var(--night-deep);
-    color: var(--ink);
+    color: #ffffff;
     font-family: "DM Sans", sans-serif;
   }
 
@@ -50,10 +50,7 @@
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 20% 25%, rgba(245, 155, 190, 0.12), transparent 32%),
-    radial-gradient(circle at 86% 72%, rgba(255, 104, 93, 0.08), transparent 28%),
-    var(--night);
+  background: var(--night);
   isolation: isolate;
 }
 
@@ -69,8 +66,9 @@
 
 .collage-screen,
 .your-photo-screen,
-.viewer-screen {
-  background: #faf4f3;
+.viewer-screen,
+.not-found-screen {
+  background: #193a4a;
 }
 
 .button {
@@ -93,7 +91,7 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  color: var(--ink);
+  color: #ffffff;
 }
 
 .snapshot-mark {
@@ -106,11 +104,11 @@
 }
 
 .snapshot-mark svg {
-  color: var(--ink);
+  color: #ffffff;
 }
 
 .brand-x {
-  color: var(--ink);
+  color: #ffffff;
   font-family: "Caveat", cursive;
   font-size: 20px;
 }
@@ -135,9 +133,9 @@
 
 .event-pill,
 .my-photo-button {
-  border: 1px solid var(--ink);
+  border: 1px solid var(--coral);
   border-radius: 999px;
-  background: var(--ink);
+  background: var(--coral);
   color: var(--paper);
   font-size: 9px;
   font-weight: 700;
@@ -171,7 +169,7 @@
 .light-wire,
 .light-stem {
   fill: none;
-  stroke: rgba(23, 20, 25, 0.72);
+  stroke: rgba(255, 255, 255, 0.78);
   stroke-width: 1.4;
   vector-effect: non-scaling-stroke;
 }
@@ -196,10 +194,68 @@
 
 .doodle {
   position: absolute;
-  color: #89848a;
+  color: #42e4ff;
   font-family: "Caveat", cursive;
   font-size: 15px;
-  opacity: 0.82;
+  opacity: 1;
+  -webkit-text-stroke: 0.35px #ffffff;
+  paint-order: stroke fill;
+}
+
+.doodle:nth-child(even) {
+  color: var(--pink);
+}
+
+.app-shell .brand,
+.app-shell .hero-copy h1,
+.app-shell .collage-intro h1,
+.app-shell .viewer-content h1,
+.app-shell .confirmation-card h1,
+.app-shell .not-found-copy h1 {
+  color: #ffffff;
+}
+
+.app-shell .hero-copy h1 em,
+.app-shell .collage-intro h1 em,
+.app-shell .brand-x,
+.app-shell .snapshot-mark svg {
+  color: #ffffff;
+}
+
+.app-shell .club-mark small,
+.app-shell .subcopy,
+.app-shell .privacy-note,
+.app-shell .wall-heading,
+.app-shell .confirmation-copy,
+.app-shell .not-found-copy > p:last-child,
+.app-shell .not-found-actions p {
+  color: #d7e5e9;
+}
+
+.app-shell .collage-intro > p:last-child,
+.app-shell .end-note,
+.app-shell .note-field {
+  color: #ffffff;
+}
+
+.app-shell .eyebrow {
+  color: var(--pink);
+}
+
+.app-shell .secondary-button,
+.app-shell .icon-button {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #ffffff;
+}
+
+.app-shell .text-button {
+  color: #d7e5e9;
+}
+
+.app-shell .note-field textarea {
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.09);
+  color: #ffffff;
 }
 
 .doodle:nth-child(1) { top: 5px; left: 2%; transform: rotate(-14deg); }
@@ -252,7 +308,7 @@
 
 .eyebrow {
   margin: 0 0 10px;
-  color: var(--ink);
+  color: #ffffff;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -263,7 +319,7 @@
 .viewer-content h1,
 .confirmation-card h1 {
   margin: 0;
-  color: var(--ink);
+  color: #ffffff;
   font-size: clamp(42px, 13vw, 60px);
   font-weight: 600;
   letter-spacing: -0.055em;
@@ -273,7 +329,7 @@
 .hero-copy h1 em,
 .collage-intro h1 em {
   display: inline-block;
-  color: var(--ink);
+  color: #ffffff;
   font-family: "Fraunces", serif;
   font-weight: 700;
 }
@@ -339,27 +395,27 @@
 }
 
 .photo-grid .polaroid:nth-child(2n)::before {
-  background: #71b7d8;
+  background: #8deeff;
   transform: translateX(-50%) rotate(-12deg);
 }
 
 .photo-grid .polaroid:nth-child(3n)::before {
-  background: #f2bd41;
+  background: #fff200;
   transform: translateX(-50%) rotate(16deg);
 }
 
 .photo-grid .polaroid:nth-child(4n)::before {
-  background: #e889b2;
+  background: #ffffff;
   transform: translateX(-50%) rotate(-7deg);
 }
 
 .photo-grid .polaroid:nth-child(5n)::before {
-  background: #65ae7a;
+  background: #54d9ff;
   transform: translateX(-50%) rotate(21deg);
 }
 
 .photo-grid .polaroid:nth-child(6n)::before {
-  background: #a17ac3;
+  background: #c9f8ff;
   transform: translateX(-50%) rotate(-18deg);
 }
 
@@ -406,8 +462,12 @@
 
 .photo-number {
   display: block;
-  margin-top: 6px;
-  color: #38303e;
+  width: fit-content;
+  margin: 6px auto 0;
+  border-radius: 999px;
+  background: var(--night);
+  color: #ffffff;
+  padding: 1px 9px;
   font-family: "Caveat", cursive;
   font-size: 17px;
   font-weight: 600;
@@ -459,15 +519,15 @@
 }
 
 .primary-button {
-  background: var(--ink);
-  box-shadow: 0 10px 26px rgba(23, 20, 25, 0.18);
-  color: var(--paper);
+  background: var(--coral);
+  box-shadow: 0 10px 26px rgba(84, 217, 255, 0.28);
+  color: #ffffff;
 }
 
 .secondary-button {
   border: 1px solid rgba(23, 20, 25, 0.22);
   background: rgba(23, 20, 25, 0.04);
-  color: var(--ink);
+  color: #ffffff;
 }
 
 .primary-button:hover,
@@ -508,13 +568,13 @@
 }
 
 .collage-intro h1 em {
-  color: var(--ink);
+  color: #ffffff;
   font-size: 0.72em;
 }
 
 .collage-intro > p:last-child {
   margin: 17px 0 0;
-  color: var(--ink);
+  color: #ffffff;
   font-family: "Caveat", cursive;
   font-size: 19px;
 }
@@ -525,9 +585,9 @@
   width: calc(100% - 32px);
   max-width: 520px;
   margin: 28px auto 35px;
-  border: 1px solid rgba(23, 20, 25, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(15, 48, 63, 0.92);
   box-shadow: 0 16px 40px rgba(31, 25, 34, 0.1);
   padding: 18px;
   backdrop-filter: blur(14px);
@@ -536,7 +596,7 @@
 .search-card > label {
   display: block;
   margin-bottom: 9px;
-  color: var(--ink);
+  color: #ffffff;
   font-size: 13px;
   font-weight: 700;
 }
@@ -548,7 +608,7 @@
   overflow: hidden;
   border: 2px solid transparent;
   border-radius: 12px;
-  background: var(--paper);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .search-row:focus-within {
@@ -561,8 +621,8 @@
   min-width: 46px;
   place-items: center;
   margin-left: 0;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--coral);
+  color: #ffffff;
   font-family: "Caveat", cursive;
   font-size: 25px;
 }
@@ -573,13 +633,13 @@
   border: 0;
   outline: 0;
   background: transparent;
-  color: var(--charcoal);
+  color: #ffffff;
   padding: 0 9px;
   font-size: 14px;
 }
 
 .search-row input::placeholder {
-  color: #89808b;
+  color: rgba(255, 255, 255, 0.68);
 }
 
 .search-button {
@@ -587,14 +647,14 @@
   width: 48px;
   height: 100%;
   place-items: center;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--coral);
+  color: #ffffff;
 }
 
 .search-card small {
   display: block;
   margin-top: 8px;
-  color: var(--muted);
+  color: #d7e5e9;
   font-size: 9px;
 }
 
@@ -624,7 +684,7 @@
 }
 
 .wall-heading span:last-child {
-  color: var(--ink);
+  color: #ffffff;
   font-family: "Caveat", cursive;
   font-size: 13px;
   letter-spacing: 0;
@@ -672,7 +732,7 @@
   gap: 3px;
   border-radius: 999px;
   background: var(--coral);
-  color: var(--night);
+  color: #ffffff;
   font-size: 9px;
   font-weight: 800;
   padding: 5px 8px;
@@ -680,7 +740,7 @@
 
 .end-note {
   margin: 55px 0 0;
-  color: var(--ink);
+  color: #ffffff;
   font-family: "Caveat", cursive;
   font-size: 23px;
   text-align: center;
@@ -766,6 +826,125 @@
   padding: 30px 20px;
 }
 
+.not-found-screen {
+  min-height: 100vh;
+}
+
+.not-found-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  max-width: 440px;
+  min-height: calc(100vh - 74px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 78px 22px 34px;
+  text-align: center;
+}
+
+.not-found-copy h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(40px, 12vw, 58px);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 0.92;
+}
+
+.not-found-copy h1 em {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+}
+
+.not-found-copy > p:last-child {
+  max-width: 350px;
+  margin: 18px auto 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.not-found-copy strong {
+  color: #ffffff;
+}
+
+.not-found-content .doodles {
+  height: 64px;
+  margin: 8px 0 14px;
+  overflow: hidden;
+}
+
+.missing-polaroid {
+  position: relative;
+  width: min(68vw, 250px);
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  padding: 10px 10px 7px;
+  transform: rotate(-2deg);
+}
+
+.missing-frame {
+  display: flex;
+  aspect-ratio: 4 / 3;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px dashed rgba(23, 20, 25, 0.38);
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(23, 20, 25, 0.025),
+      rgba(23, 20, 25, 0.025) 8px,
+      rgba(23, 20, 25, 0.06) 8px,
+      rgba(23, 20, 25, 0.06) 9px
+    ),
+    #f4f0ee;
+  color: #777078;
+}
+
+.missing-frame span {
+  font-family: "Caveat", cursive;
+  font-size: 18px;
+}
+
+.missing-tape {
+  position: absolute;
+  width: 54px;
+  height: 17px;
+  background: rgba(137, 132, 138, 0.32);
+}
+
+.missing-tape-left {
+  top: -3px;
+  left: -18px;
+  transform: rotate(-38deg);
+}
+
+.missing-tape-right {
+  right: -18px;
+  bottom: 10px;
+  transform: rotate(-34deg);
+}
+
+.not-found-actions {
+  display: grid;
+  width: 100%;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.not-found-actions p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
 .confirmation-card {
   position: relative;
   z-index: 2;
@@ -810,7 +989,7 @@
 .note-field {
   width: 100%;
   margin-bottom: 18px;
-  color: var(--ink);
+  color: #ffffff;
   font-family: "Caveat", cursive;
   font-size: 17px;
   text-align: left;
@@ -829,7 +1008,7 @@
   border-radius: 14px;
   outline: none;
   background: rgba(23, 20, 25, 0.04);
-  color: var(--ink);
+  color: #ffffff;
   padding: 13px 15px;
   font-family: "DM Sans", sans-serif;
   font-size: 12px;
