@@ -200,13 +200,13 @@ function Doodles() {
       <span className="doodle doodle-heart-two">♥</span>
       <span className="doodle doodle-moon-two">☽</span>
       <span className="doodle doodle-burst">※</span>
-      <span className="doodle doodle-stars">✦ ✧</span>
+      <span className="doodle doodle-stars">✧</span>
       <span className="doodle doodle-sun-two">☼</span>
       <span className="doodle doodle-spark-two">✣</span>
       <span className="doodle doodle-title-heart">♡</span>
       <span className="doodle doodle-title-burst">✺</span>
       <span className="doodle doodle-title-moon">☾</span>
-      <span className="doodle doodle-title-star">✦</span>
+      <span className="doodle doodle-title-star">☼</span>
       <span className="doodle doodle-edge-spark">✧</span>
       <span className="doodle doodle-edge-sun">☼</span>
       <span className="doodle doodle-edge-heart">♥</span>
